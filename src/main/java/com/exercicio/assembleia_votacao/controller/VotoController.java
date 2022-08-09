@@ -14,5 +14,7 @@ public class VotoController {
     @PostMapping
     public void salvarVoto(@Valid @RequestBody Voto voto){
         
+        
+        
     }
 }
