@@ -2,13 +2,12 @@ package com.exercicio.assembleia_votacao.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -23,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SessãoVotacao implements Serializable {
+public class SessaoVotacao implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -31,7 +30,8 @@ public class SessãoVotacao implements Serializable {
     private Long id; 
     
     @NotNull(message = "O campo id_pauta é obrigatório.")
-    @OneToOne(mappedBy = "sessaoVotacao")
+    @OneToOne
+    @JoinColumn(name = "pauta_id")
     private Pauta pauta;
              
     private LocalDateTime data_inicio; 

@@ -36,7 +36,7 @@ public class Voto implements Serializable {
     @NotBlank(message = "O campo id_associado é obrigatório.") 
     @ManyToOne
     @JoinColumn(name = "fk_pauta")
-    private SessãoVotacao sessaoVotacao;
+    private SessaoVotacao sessaoVotacao;
     
     @NotNull(message = "O campo voto é obrigatório.")
     @NotBlank(message = "O campo voto é obrigatório.") 
