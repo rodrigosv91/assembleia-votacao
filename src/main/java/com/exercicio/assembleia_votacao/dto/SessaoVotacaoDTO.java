@@ -15,15 +15,24 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SessaoVotacaoDTO    {
     
+    private final int TEMPO_DEFAULT = 1;
+    
     @NotNull(message = "O campo id_pauta é obrigatório.")
-    private Long idPauta;
+    private Long idPauta;  
     
     private Integer tempoAberturaSessao;
     
     public SessaoVotacao converteParaSessaoVotacao(){
-        Pauta pauta = new Pauta();
-        pauta.setId(this.idPauta); 
-        return (new SessaoVotacao(null, pauta, null, null));
+        Pauta pauta = new Pauta(this.idPauta);  
+        LocalDateTime dataInicio =  LocalDateTime.now();
+        LocalDateTime dataFim;
+        
+        if(tempoAberturaSessao == null)
+            dataFim = dataInicio.plusMinutes(TEMPO_DEFAULT);
+        else
+            dataFim = dataInicio.plusMinutes(tempoAberturaSessao);
+             
+        return (new SessaoVotacao(null, pauta, dataInicio, dataFim));
     }
       
 }

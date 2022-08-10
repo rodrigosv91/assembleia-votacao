@@ -7,10 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,11 +26,14 @@ public class Pauta implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id")
     private long id;
-    
-    @NotNull(message = "O campo decrição é obrigatório.")
-    private String descricao;
+       
+    private String descricao; 
     
     @OneToOne(mappedBy = "pauta", cascade = CascadeType.ALL)
     private SessaoVotacao sessaoVotacao;
+
+    public Pauta(Long idPauta) {
+        this.id = idPauta;
+    }
      
 }

@@ -20,7 +20,7 @@ public class SessaoVotacaoController {
     public void salvarSessaoVotacao (@Valid @RequestBody SessaoVotacaoDTO sessaoVotacaoDTO){
         //verificar se existe pauta com tal id
         //verificar se foi informado o tempo de abertura sessao
-        sessaoVotacaService.salvarSessaoVotacao(sessaoVotacaoDTO.converteParaSessaoVotacao());
+        sessaoVotacaService.salvarSessaoVotacao(sessaoVotacaoDTO);
     }
     
     
