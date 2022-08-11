@@ -23,5 +23,8 @@ public class SessaoVotacaoController {
         sessaoVotacaService.salvarSessaoVotacao(sessaoVotacaoDTO);
     }
     
+    //retornar sessao ao inves de void
+    //metodo get sessoes
+    
     
 }
