@@ -25,15 +25,17 @@ public class Pauta implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id")
-    private long id;
+    private Long id;
        
     private String descricao; 
     
-    @OneToOne(mappedBy = "pauta", cascade = CascadeType.ALL)
-    private SessaoVotacao sessaoVotacao;
+    //@OneToOne(mappedBy = "pauta", cascade = CascadeType.ALL)
+    //private SessaoVotacao sessaoVotacao;
 
     public Pauta(Long idPauta) {
         this.id = idPauta;
     }
+
+ 
      
 }

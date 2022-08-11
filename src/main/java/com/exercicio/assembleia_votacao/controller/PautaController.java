@@ -1,5 +1,6 @@
 package com.exercicio.assembleia_votacao.controller;
 
+import com.exercicio.assembleia_votacao.dto.PautaDTO;
 import com.exercicio.assembleia_votacao.model.Pauta;
 import com.exercicio.assembleia_votacao.service.PautaService;
 import java.util.List;
@@ -19,19 +20,15 @@ public class PautaController {
     
     @Autowired
     PautaService pautaService;
-    
-    
-    //wrap com response entity
+
     @PostMapping
-    public void salvarPauta(@Valid @RequestBody Pauta pauta){
-        //dto
-        pautaService.salvarPauta(pauta);
+    public ResponseEntity<Pauta> save(@Valid @RequestBody PautaDTO pautaDTO) {
+        return new ResponseEntity<>(pautaService.salvarPauta(pautaDTO), HttpStatus.CREATED); 
     }
-    
-    
+       
     //adicionar campo enum  "status" em pautas (verificar se ja foram votadas ou nao)
     //ou procurar por pautas que não tenham seu id em (sessaoVotacao)
-    
+      
     @GetMapping
     public ResponseEntity<List<Pauta>> listarPautas(){
         List<Pauta> pautas = this.pautaService.listarPautas();

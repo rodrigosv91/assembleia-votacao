@@ -23,8 +23,7 @@ public class SessaoVotacaoDTO    {
     private Integer tempoAberturaSessao;
     
     public SessaoVotacao converteParaSessaoVotacao(){
-        Pauta pauta = new Pauta(this.idPauta);  
-        LocalDateTime dataInicio =  LocalDateTime.now();
+        LocalDateTime dataInicio = LocalDateTime.now();
         LocalDateTime dataFim;
         
         if(tempoAberturaSessao == null)
@@ -32,7 +31,12 @@ public class SessaoVotacaoDTO    {
         else
             dataFim = dataInicio.plusMinutes(tempoAberturaSessao);
              
-        return (new SessaoVotacao(null, pauta, dataInicio, dataFim));
+        return new SessaoVotacao(
+                    null, 
+                    new Pauta(
+                            this.idPauta), 
+                    dataInicio, 
+                    dataFim);
     }
       
 }
