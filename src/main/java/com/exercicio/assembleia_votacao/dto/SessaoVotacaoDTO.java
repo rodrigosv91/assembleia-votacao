@@ -21,22 +21,14 @@ public class SessaoVotacaoDTO    {
     private Long idPauta;  
     
     private Integer tempoAberturaSessao;
-    
+    /*
     public SessaoVotacao converteParaSessaoVotacao(){
-        LocalDateTime dataInicio = LocalDateTime.now();
-        LocalDateTime dataFim;
-        
-        if(tempoAberturaSessao == null)
-            dataFim = dataInicio.plusMinutes(TEMPO_DEFAULT);
-        else
-            dataFim = dataInicio.plusMinutes(tempoAberturaSessao);
-             
         return new SessaoVotacao(
                     null, 
                     new Pauta(
                             this.idPauta), 
-                    dataInicio, 
-                    dataFim);
+                    null, 
+                    null);
     }
-      
+    */
 }

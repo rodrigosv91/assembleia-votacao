@@ -11,4 +11,5 @@ public interface SessaoVotacaoRepository extends JpaRepository<SessaoVotacao, Lo
     @Query(value = "SELECT * FROM sessao_votacao sv WHERE sv.pauta_id = :pauta_id", nativeQuery = true)
     Optional<SessaoVotacao> findSessaoVotacaoByPautaId(@Param("pauta_id") Long pautaId); 
         
+    Optional<SessaoVotacao> findByPautaId(Long pautaId);
 }

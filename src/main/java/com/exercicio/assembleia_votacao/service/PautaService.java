@@ -4,6 +4,7 @@ import com.exercicio.assembleia_votacao.dto.PautaDTO;
 import com.exercicio.assembleia_votacao.model.Pauta;
 import com.exercicio.assembleia_votacao.repository.PautaRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -15,13 +16,16 @@ public class PautaService {
     PautaRepository pautaRepository;
     
     public Pauta salvarPauta(PautaDTO pautaDTO){
-        return pautaRepository.save(pautaDTO.converteParaPauta());
+        Pauta pauta = pautaDTO.converteParaPauta();
+        return pautaRepository.save(pauta);
     }
     
-    public List<Pauta> listarPautas(){ 
-        //dtoPauta
-        //pautaRepository.findAll().forEach(p -> System.out.println("p " + p.getDescricao()));
+    public List<Pauta> buscarPautas(){ 
         return pautaRepository.findAll();
+    }
+    
+    public Optional<Pauta> getPautaById(Long idPauta){
+        return pautaRepository.findById(idPauta);
     }
    
 }

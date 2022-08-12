@@ -31,7 +31,7 @@ public class PautaController {
       
     @GetMapping
     public ResponseEntity<List<Pauta>> listarPautas(){
-        List<Pauta> pautas = this.pautaService.listarPautas();
+        List<Pauta> pautas = this.pautaService.buscarPautas();
         return pautas.isEmpty() ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(pautas, HttpStatus.OK);
     }
     
