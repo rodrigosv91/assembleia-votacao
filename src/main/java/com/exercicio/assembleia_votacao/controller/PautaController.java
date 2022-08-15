@@ -36,7 +36,10 @@ public class PautaController {
     }
     
 
-
+    //metodo para pegar todos os votos de uma pauta (pega id sessao e depois votos com id sessao)
+    // talvez incluir o mapeamento inverso
+    //se lista de votos vazia informar
+    //se tem votos registar resultado (informar ou salvar em nova tabela ("resultado pauta"?))
 
     
 }

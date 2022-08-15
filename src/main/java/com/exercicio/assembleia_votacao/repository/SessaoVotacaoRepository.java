@@ -17,5 +17,4 @@ public interface SessaoVotacaoRepository extends JpaRepository<SessaoVotacao, Lo
     
     List<SessaoVotacao> findByDataFimGreaterThanAndDataInicioLessThanEqual(LocalDateTime dataFinal, LocalDateTime dataInicio);
     
-    
 }

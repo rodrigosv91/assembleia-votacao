@@ -4,7 +4,6 @@ import com.exercicio.assembleia_votacao.dto.SessaoVotacaoDTO;
 import com.exercicio.assembleia_votacao.model.Pauta;
 import com.exercicio.assembleia_votacao.model.SessaoVotacao;
 import com.exercicio.assembleia_votacao.repository.SessaoVotacaoRepository;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
