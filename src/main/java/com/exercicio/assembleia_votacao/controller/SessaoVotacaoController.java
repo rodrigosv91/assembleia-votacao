@@ -35,9 +35,10 @@ public class SessaoVotacaoController {
     }
            
     @GetMapping("/abertas")
-    public ResponseEntity<SessaoVotacao> buscarSessoesAbertas(){
-        
-        return null;     
+    public ResponseEntity<List<SessaoVotacao>> buscarSessoesAbertas(){
+        List<SessaoVotacao> list = sessaoVotacaoService.buscarSessoesAbertas(); 
+        //List<SessaoVotacao> list = sessaoVotacaoService.buscarSessoes(); 
+        return list.isEmpty() ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(list, HttpStatus.OK);     
     }
     
     //retornar sessao ao inves de void

@@ -34,8 +34,8 @@ public class SessaoVotacao implements Serializable {
     @JoinColumn(name = "pauta_id")
     private Pauta pauta;
              
-    private LocalDateTime data_inicio; 
+    private LocalDateTime dataInicio; 
     
-    private LocalDateTime data_fim;
+    private LocalDateTime dataFim;
     
 }

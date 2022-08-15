@@ -22,7 +22,7 @@ public class PautaController {
     PautaService pautaService;
 
     @PostMapping
-    public ResponseEntity<Pauta> save(@Valid @RequestBody PautaDTO pautaDTO) {
+    public ResponseEntity<Pauta> salvarPauta(@Valid @RequestBody PautaDTO pautaDTO) {
         return new ResponseEntity<>(pautaService.salvarPauta(pautaDTO), HttpStatus.CREATED); 
     }
        

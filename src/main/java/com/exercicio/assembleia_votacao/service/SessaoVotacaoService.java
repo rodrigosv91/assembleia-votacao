@@ -4,6 +4,7 @@ import com.exercicio.assembleia_votacao.dto.SessaoVotacaoDTO;
 import com.exercicio.assembleia_votacao.model.Pauta;
 import com.exercicio.assembleia_votacao.model.SessaoVotacao;
 import com.exercicio.assembleia_votacao.repository.SessaoVotacaoRepository;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -39,8 +40,8 @@ public class SessaoVotacaoService {
                 else
                     dataFim = dataInicio.plusMinutes(sessaoVotacaoDTO.getTempoAberturaSessao());           
 
-                sessaoVotacao.setData_inicio(dataInicio);
-                sessaoVotacao.setData_fim(dataFim);
+                sessaoVotacao.setDataInicio(dataInicio);
+                sessaoVotacao.setDataFim(dataFim);
                 sessaoVotacao.setPauta(pautaReferida.get());
 
                 return sessaoVotacaoRepository.save(sessaoVotacao) ;
@@ -52,9 +53,8 @@ public class SessaoVotacaoService {
         return sessaoVotacaoRepository.findAll();
     }
     
-    public List<SessaoVotacao> buscarSessoesAbertas(){ 
-        //return sessaoVotacaoRepository.;
-        return null;
-
+    public List<SessaoVotacao> buscarSessoesAbertas(){   
+        LocalDateTime dataAtual = LocalDateTime.now();
+        return sessaoVotacaoRepository.findByDataFimGreaterThanAndDataInicioLessThanEqual(dataAtual,dataAtual);
     }
 }
