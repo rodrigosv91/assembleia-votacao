@@ -1,6 +1,7 @@
 package com.exercicio.assembleia_votacao.service;
 
 import com.exercicio.assembleia_votacao.dto.PautaDTO;
+import com.exercicio.assembleia_votacao.dto.ResultadoPautaDTO;
 import com.exercicio.assembleia_votacao.model.Pauta;
 import com.exercicio.assembleia_votacao.repository.PautaRepository;
 import java.util.List;
@@ -28,4 +29,9 @@ public class PautaService {
         return pautaRepository.findById(idPauta);
     }
    
+    public ResultadoPautaDTO resultadoPauta(Long idPauta){
+    
+        return null; 
+    }
+    
 }
