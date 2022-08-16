@@ -1,8 +1,5 @@
 package com.exercicio.assembleia_votacao.dto;
 
-import com.exercicio.assembleia_votacao.model.Pauta;
-import com.exercicio.assembleia_votacao.model.SessaoVotacao;
-import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

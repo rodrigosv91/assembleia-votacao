@@ -2,12 +2,12 @@ package com.exercicio.assembleia_votacao.dto;
 
 import com.exercicio.assembleia_votacao.model.Pauta;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@Builder
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class PautaDTO {
@@ -19,6 +19,5 @@ public class PautaDTO {
                 null,  
                 this.descricao);
     }
-    
     
 }

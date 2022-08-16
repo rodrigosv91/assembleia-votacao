@@ -22,7 +22,7 @@ public class SessaoVotacaoService {
     public SessaoVotacao salvarSessaoVotacao (SessaoVotacaoDTO sessaoVotacaoDTO){      
         
         Optional<SessaoVotacao> verificaSeExiste = sessaoVotacaoRepository.findByPautaId(sessaoVotacaoDTO.getIdPauta());
-        //Optional<SessaoVotacao> verificaSeExiste = sessaoVotacaoRepository.findSessaoVotacaoByPautaId(sessaoVotacaoDTO.getIdPauta());
+        
         if(verificaSeExiste.isPresent())
             throw new IllegalArgumentException("Sessão já existe");     
         else{

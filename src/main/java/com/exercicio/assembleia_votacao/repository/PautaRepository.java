@@ -8,4 +8,5 @@ public interface PautaRepository extends JpaRepository<Pauta, Long> {
     
     @Override
     Optional<Pauta> findById(Long id);
+    
 }

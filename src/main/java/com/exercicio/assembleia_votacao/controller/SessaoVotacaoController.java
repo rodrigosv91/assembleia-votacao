@@ -23,8 +23,6 @@ public class SessaoVotacaoController {
     
     @PostMapping
     public ResponseEntity<SessaoVotacao> salvarSessaoVotacao (@Valid @RequestBody SessaoVotacaoDTO sessaoVotacaoDTO){
-        //verificar se existe pauta com tal id
-        //verificar se foi informado o tempo de abertura sessao
         return new ResponseEntity<>(sessaoVotacaoService.salvarSessaoVotacao(sessaoVotacaoDTO), HttpStatus.CREATED);
     }
     
@@ -40,9 +38,5 @@ public class SessaoVotacaoController {
         //List<SessaoVotacao> list = sessaoVotacaoService.buscarSessoes(); 
         return list.isEmpty() ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(list, HttpStatus.OK);     
     }
-    
-    //retornar sessao ao inves de void
-    //metodo get sessoes
-    
     
 }

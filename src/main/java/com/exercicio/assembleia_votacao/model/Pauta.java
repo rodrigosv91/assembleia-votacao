@@ -29,13 +29,8 @@ public class Pauta implements Serializable {
        
     private String descricao; 
     
-    //@OneToOne(mappedBy = "pauta", cascade = CascadeType.ALL)
-    //private SessaoVotacao sessaoVotacao;
-
     public Pauta(Long idPauta) {
         this.id = idPauta;
     }
-
  
-     
 }

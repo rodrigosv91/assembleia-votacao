@@ -27,12 +27,9 @@ public class PautaController {
     public ResponseEntity<Pauta> salvarPauta(@Valid @RequestBody PautaDTO pautaDTO) {
         return new ResponseEntity<>(pautaService.salvarPauta(pautaDTO), HttpStatus.CREATED); 
     }
-       
-    //adicionar campo enum  "status" em pautas (verificar se ja foram votadas ou nao)
-    //ou procurar por pautas que não tenham seu id em (sessaoVotacao)
-      
+        
     @GetMapping
-    public ResponseEntity<List<Pauta>> listarPautas(){
+    public ResponseEntity<List<Pauta>> listarPautas(){  
         List<Pauta> pautas = this.pautaService.buscarPautas();
         return pautas.isEmpty() ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(pautas, HttpStatus.OK);
     }
@@ -40,18 +37,7 @@ public class PautaController {
     @GetMapping("/resultado/{id}")
     public ResponseEntity<ResultadoPautaDTO> resultadoVotacao(@PathVariable Long id){
         ResultadoPautaDTO pautaResultado = this.pautaService.resultadoPauta(id);
-        return ResponseEntity.ok(pautaResultado); 
+        return new ResponseEntity<>(pautaResultado, HttpStatus.OK); 
     }
-    //resultadoPautaDTO (novo dto)
-    //lista com <votoResponseDTO> (sem usuario id )
-    //status sessao (ABERTA / FECHADA)
-    //status pauta (APROVADA, REJEITADA, EMPATE, NAO_VOTADA)
-     
-    
-    //metodo para pegar todos os votos de uma pauta (pega id sessao e depois votos com id sessao)
-    //talvez incluir o mapeamento inverso
-    //se lista de votos vazia informar
-    //se tem votos registar resultado (informar ou salvar em nova tabela ("resultado pauta"?)) 
-
     
 }
