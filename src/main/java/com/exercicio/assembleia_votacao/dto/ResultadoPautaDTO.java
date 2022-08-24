@@ -25,7 +25,7 @@ public class ResultadoPautaDTO {
     private StatusSessaoVotacaoEnum statusSessao; 
     
     private StatusPautaEnum statusPauta; 
-    
+    /*
     public void SetListaVotosFromVotos(List<Voto> votos){
         this.setListaVotos(converteParaVotoResponseDTO(votos));
     }
@@ -60,5 +60,5 @@ public class ResultadoPautaDTO {
             setStatusPauta(StatusPautaEnum.APROVADA);
         else 
             setStatusPauta(StatusPautaEnum.REJEITADA);               
-    }
+    }*/
 }

@@ -2,11 +2,13 @@ package com.exercicio.assembleia_votacao.service;
 
 import com.exercicio.assembleia_votacao.dto.PautaDTO;
 import com.exercicio.assembleia_votacao.dto.ResultadoPautaDTO;
+import com.exercicio.assembleia_votacao.mapper.PautaMapper;
 import com.exercicio.assembleia_votacao.model.Pauta;
 import com.exercicio.assembleia_votacao.model.SessaoVotacao;
 import com.exercicio.assembleia_votacao.repository.PautaRepository;
 import com.exercicio.assembleia_votacao.repository.SessaoVotacaoRepository;
 import com.exercicio.assembleia_votacao.repository.VotoRepository;
+import com.exercicio.assembleia_votacao.service.utils.ResultadoPautaDTOUtils;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +23,9 @@ public class PautaService {
     
     @Autowired
     SessaoVotacaoRepository sessaoVotacaoRepository;
-    
-    @Autowired
-    VotoRepository votoRepository;
-    
+        
     public Pauta salvarPauta(PautaDTO pautaDTO){
-        Pauta pauta = pautaDTO.converteParaPauta();
+        Pauta pauta = PautaMapper.dtoParaPauta(pautaDTO);
         return pautaRepository.save(pauta);
     }
     
@@ -49,11 +48,13 @@ public class PautaService {
             if(sessaoVotacao.isEmpty())
                 throw new IllegalArgumentException("Sessão de votação não existe."); 
             else{ 
-                ResultadoPautaDTO resPauta = new ResultadoPautaDTO();
-                resPauta.SetListaVotosFromVotos(votoRepository.findAllBySessaoVotacaoId(sessaoVotacao.get().getId()));                     
-                resPauta.calculaStatusSessaoVotacao(sessaoVotacao.get());
-                resPauta.CalculaStatusPauta();               
-                return resPauta;
+                //ResultadoPautaDTO resPauta = new ResultadoPautaDTO();
+                //resPauta.SetListaVotosFromVotos(votoRepository.findAllBySessaoVotacaoId(sessaoVotacao.get().getId()));                     
+                //resPauta.calculaStatusSessaoVotacao(sessaoVotacao.get());
+                //resPauta.CalculaStatusPauta();               
+                //return resPauta;
+                
+                return new ResultadoPautaDTOUtils().getResultadoPautaDTOFromSessaoVotacao(sessaoVotacao.get());
             } 
         }       
     }

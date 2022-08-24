@@ -1,6 +1,7 @@
 package com.exercicio.assembleia_votacao.service;
 
 import com.exercicio.assembleia_votacao.dto.SessaoVotacaoDTO;
+import com.exercicio.assembleia_votacao.mapper.SessaoVotacaoMapper;
 import com.exercicio.assembleia_votacao.model.Pauta;
 import com.exercicio.assembleia_votacao.model.SessaoVotacao;
 import com.exercicio.assembleia_votacao.repository.SessaoVotacaoRepository;
@@ -31,6 +32,7 @@ public class SessaoVotacaoService {
                 throw new IllegalArgumentException("Pauta não existe");
             }
             else{
+                /*
                 SessaoVotacao sessaoVotacao = new SessaoVotacao();
                 LocalDateTime dataInicio = LocalDateTime.now();
                 LocalDateTime dataFim;
@@ -41,9 +43,9 @@ public class SessaoVotacaoService {
 
                 sessaoVotacao.setDataInicio(dataInicio);
                 sessaoVotacao.setDataFim(dataFim);
-                sessaoVotacao.setPauta(pautaReferida.get());
-
-                return sessaoVotacaoRepository.save(sessaoVotacao) ;
+                sessaoVotacao.setPauta(pautaReferida.get()); 
+                */
+                return sessaoVotacaoRepository.save(SessaoVotacaoMapper.dtoParaNovaSessaoVotacao(sessaoVotacaoDTO, pautaReferida.get()));
             }
         }
     }

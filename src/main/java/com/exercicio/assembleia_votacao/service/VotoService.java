@@ -1,9 +1,9 @@
 package com.exercicio.assembleia_votacao.service;
 
 import com.exercicio.assembleia_votacao.dto.VotoDTO;
+import com.exercicio.assembleia_votacao.mapper.VotoMapper;
 import com.exercicio.assembleia_votacao.model.SessaoVotacao;
 import com.exercicio.assembleia_votacao.model.Voto;
-import com.exercicio.assembleia_votacao.model.enums.VotoEnum;
 import com.exercicio.assembleia_votacao.repository.SessaoVotacaoRepository;
 import com.exercicio.assembleia_votacao.repository.VotoRepository;
 import java.time.LocalDateTime;
@@ -37,14 +37,17 @@ public class VotoService {
                 LocalDateTime dataAtual = LocalDateTime.now(); 
                 if(sessaoVotacao.get().getDataFim().isBefore(dataAtual) || sessaoVotacao.get().getDataInicio().isAfter(dataAtual))
                     throw new IllegalArgumentException("Sessão fechada para votos.");
-                else{                                                          
+                else{
+                    /*
                     Voto voto = new Voto(
                             null, 
                             votoDTO.getIdAssociado(),
                             sessaoVotacao.get(),
                             votoDTO.isVoto() ? VotoEnum.SIM : VotoEnum.NAO
                     );                    
-                    return votoRepository.save(voto);                    
+                    return votoRepository.save(voto);  
+                    */ 
+                    return votoRepository.save(VotoMapper.dtoParaVoto(votoDTO, sessaoVotacao.get()));
                 }                   
             }       
         }          
